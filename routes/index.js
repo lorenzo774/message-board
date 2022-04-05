@@ -24,7 +24,9 @@ router.post("/new", function (req, res, next) {
   const msg = {
     text: msgText,
     user: username,
-    added: `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`,
+    added: `${date.getHours()}:${date.getMinutes()}   ${date.getDate()}/${
+      date.getMonth() + 1
+    }/${date.getFullYear()}`,
   };
 
   messages.push(msg);
