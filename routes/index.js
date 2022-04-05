@@ -5,7 +5,7 @@ const messages = [];
 
 /* GET home page. */
 router.get("/", function (req, res, next) {
-  res.render("index", { title: "Prova pug e ruote", messages: messages });
+  res.render("index", { title: "Messages app", messages: messages });
 });
 
 /* GET new page */
