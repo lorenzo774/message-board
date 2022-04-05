@@ -2,6 +2,12 @@ doctype html
 html 
     head 
         title Add a new message 
+        link(rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@forevolve/bootstrap-dark@1.0.0/dist/css/bootstrap-dark.min.css")
     body 
-        form(method="POST", action="/new")
-            p prova
+        form.d-flex.justify-content-center(method="POST", action="/new")
+            div.form-group.card.m-5.p-3.w-50
+                label User
+                input.form-control(name="messageUser" placeholder="Insert username" required="true") 
+                label Message
+                input.form-control(name="messageText" placeholder="Insert your message" required="true") 
+                button.btn.btn-primary.mt-3(type="submit") Send

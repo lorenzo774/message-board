@@ -2,6 +2,9 @@ extends layout
 include message
 
 block content
-  h1= title
-  each m in messages
-    +messageDiv(m)
+  h1.text-center= title
+  div.d-flex.align-items-center.flex-column.mt-5
+    each m in messages
+      +messageDiv(m)
+
+  a(href="/new") Invia un nuovo messaggio

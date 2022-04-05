@@ -1,18 +1,7 @@
 var express = require("express");
 var router = express.Router();
 
-const messages = [
-  {
-    text: "Hi there!",
-    user: "Amando",
-    added: new Date(),
-  },
-  {
-    text: "Hello World!",
-    user: "Charles",
-    added: new Date(),
-  },
-];
+const messages = [];
 
 /* GET home page. */
 router.get("/", function (req, res, next) {
@@ -22,6 +11,24 @@ router.get("/", function (req, res, next) {
 /* GET new page */
 router.get("/new", function (req, res, next) {
   res.render("new");
+});
+
+/* POST new page */
+router.post("/new", function (req, res, next) {
+  const msgText = req.body.messageText;
+  const username = req.body.messageUser;
+
+  if (!msgText || !username) return;
+
+  const date = new Date();
+  const msg = {
+    text: msgText,
+    user: username,
+    added: `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`,
+  };
+
+  messages.push(msg);
+  res.redirect("/");
 });
 
 module.exports = router;
