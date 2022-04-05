@@ -21,12 +21,14 @@ router.post("/new", function (req, res, next) {
   if (!msgText || !username) return;
 
   const date = new Date();
+  const formattedDate = `
+  ${date.getHours()}:${`${date.getMinutes()}`.padStart(2, "0")}   
+  ${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
+
   const msg = {
     text: msgText,
     user: username,
-    added: `${date.getHours()}:${date.getMinutes()}   ${date.getDate()}/${
-      date.getMonth() + 1
-    }/${date.getFullYear()}`,
+    added: formattedDate,
   };
 
   messages.push(msg);
